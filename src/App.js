@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -48,22 +48,22 @@ function App() {
 
   return (
     <>
-      <Grid container flexDirection='row' color='text'>
-        <Box
-          sx={{
-            display: "flex",
-            position: "absolute",
-            background: "rgba(153,99,0,0.8)",
-            fliter: "blur(50.4px)",
-            width: "100%",
-            height: "10vh",
-            justifyContent: "center",
-            alignItems: "center",
-            borderBottomRightRadius: "30px",
-            borderBottomLeftRadius: "30px",
-          }}>
-          <Typography className='Title' variant='h5' color='white'>
+      <Grid container flexDirection='column' color='text'>
+        <Box className='AppBar'>
+          <Typography
+            className='Title'
+            variant='h5'
+            sx={{ fontFamily: "Montserrat Alternates" }}
+            color='text'>
             Métodos numéricos
+          </Typography>
+          <Typography
+            className='Title'
+            variant='caption'
+            sx={{
+              fontFamily: "Montserrat Alternates",
+            }}>
+            Proyecto final
           </Typography>
         </Box>
         <Grid
@@ -71,36 +71,77 @@ function App() {
           container
           flexDirection='column'
           width='100%'
-          alignItems='center'
-          mt={8}>
+          minHeight='85vh'
+          alignItems='center'>
           <Tabs
             value={value}
-            indicatorColor='secondary'
-            textColor='secondary'
+            TabIndicatorProps={{
+              style: {
+                borderRadius: "25px",
+                height: "5px",
+              },
+            }}
+            indicatorColor='primary'
+            textColor='primary'
             onChange={handleChange}
             aria-label='lista_metodos'>
-            <Tab label='Derivadas' {...a11yProps(0)} />
-            <Tab label='La Grange' {...a11yProps(1)} />
-            <Tab label='Newton' {...a11yProps(2)} />
-            <Tab label='Interpolacion' {...a11yProps(3)} />
-            <Tab label='Integral' {...a11yProps(4)} />
+            <Tab
+              label='Derivadas'
+              className='Tab'
+              sx={{
+                textTransform: "none",
+                fontWeight: "bold",
+                fontFamily: "Montserrat Alternates",
+              }}
+              {...a11yProps(0)}
+            />
+            <Tab
+              label='La Grange'
+              className='Tab'
+              sx={{
+                textTransform: "none",
+                fontWeight: "bold",
+                fontFamily: "Montserrat Alternates",
+              }}
+              {...a11yProps(1)}
+            />
+            <Tab
+              label='Newton'
+              className='Tab'
+              sx={{
+                textTransform: "none",
+                fontWeight: "bold",
+                fontFamily: "Montserrat Alternates",
+              }}
+              {...a11yProps(2)}
+            />
+            <Tab
+              label='Interpolación'
+              className='Tab'
+              sx={{
+                textTransform: "none",
+                fontWeight: "bold",
+                fontFamily: "Montserrat Alternates",
+              }}
+              {...a11yProps(3)}
+            />
+            <Tab
+              label='Integral'
+              className='Tab'
+              sx={{
+                textTransform: "none",
+                fontWeight: "bold",
+                fontFamily: "Montserrat Alternates",
+              }}
+              {...a11yProps(4)}
+            />
           </Tabs>
 
-          <TabPanel value={value} index={0}>
-            Item One
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            Item Two
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            Item Three
-          </TabPanel>
-          <TabPanel value={value} index={3}>
-            Item Four
-          </TabPanel>
-          <TabPanel value={value} index={4}>
-            Item Five
-          </TabPanel>
+          <TabPanel value={value} index={0}></TabPanel>
+          <TabPanel value={value} index={1}></TabPanel>
+          <TabPanel value={value} index={2}></TabPanel>
+          <TabPanel value={value} index={3}></TabPanel>
+          <TabPanel value={value} index={4}></TabPanel>
         </Grid>
       </Grid>
     </>
