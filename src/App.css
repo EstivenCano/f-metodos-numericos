@@ -5,7 +5,7 @@ html {
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 0%,
-    rgba(107, 113, 142, 0.2777485994397759) 100%
+    rgba(107, 113, 142, 0.28) 100%
   );
   font-family: "Montserrat Alternates", "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -14,9 +14,19 @@ html {
 
 .Title {
   font-family: "Montserrat Alternates", sans-serif;
+  text-shadow: 0px 0px 10px #fff;
   font-weight: bold;
   color: white;
   font-size: 2.5rem;
+}
+
+.Tab-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 75vw;
+  height: 70vh;
 }
 
 .App {
@@ -30,7 +40,7 @@ html {
 
 .AppBar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 15vh;

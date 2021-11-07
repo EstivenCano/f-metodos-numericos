@@ -6,6 +6,9 @@ import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Paper from "@mui/material/Paper";
+import PaperLine from "../src/components/paperLine";
+import FormLaGrange from "./containers/lagrange";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -18,9 +21,15 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}>
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
+        <Paper
+          elevation={5}
+          className='Tab-container'
+          sx={{
+            borderBottomLeftRadius: "25px",
+            borderBottomRightRadius: "25px",
+          }}>
+          {children}
+        </Paper>
       )}
     </div>
   );
@@ -50,21 +59,46 @@ function App() {
     <>
       <Grid container flexDirection='column' color='text'>
         <Box className='AppBar'>
-          <Typography
-            className='Title'
-            variant='h5'
-            sx={{ fontFamily: "Montserrat Alternates" }}
-            color='text'>
-            Métodos numéricos
-          </Typography>
-          <Typography
-            className='Title'
-            variant='caption'
+          <Box ml={10} sx={{ height: "100%", width: "50%", display: "flex" }}>
+            <PaperLine />
+            <PaperLine />
+          </Box>
+          <Grid
+            container
+            flexDirection='column'
+            justifyContent='center'
+            alignItems='center'>
+            <Typography
+              className='Title'
+              variant='h5'
+              align='center'
+              sx={{
+                fontFamily: "Montserrat Alternates",
+              }}
+              color='text'>
+              {" "}
+              Métodos numéricos
+            </Typography>
+            <Typography
+              className='Title'
+              variant='caption'
+              sx={{
+                fontFamily: "Montserrat Alternates",
+              }}>
+              Proyecto final
+            </Typography>
+          </Grid>
+          <Box
+            mr={10}
             sx={{
-              fontFamily: "Montserrat Alternates",
+              height: "100%",
+              width: "50%",
+              display: "flex",
+              justifyContent: "end",
             }}>
-            Proyecto final
-          </Typography>
+            <PaperLine />
+            <PaperLine />
+          </Box>
         </Box>
         <Grid
           item
@@ -136,8 +170,26 @@ function App() {
               {...a11yProps(4)}
             />
           </Tabs>
-
-          <TabPanel value={value} index={0}></TabPanel>
+          <TabPanel value={value} index={0}>
+            <Grid container width='100%' height='100%' sx={{ padding: 1, background: 'green' }}>
+              <Grid item container xs={7} md={6} p={1} mt={1} sx={{background: 'red'}}>
+                <Typography
+                  variant='body1'
+                  align='center'
+                  sx={{
+                    fontFamily: "Montserrat Alternates",
+                    fontWeight: "bold",
+                    width:'100%'
+                  }}>
+                  Ingrese los valores de x e y
+                </Typography>
+                <FormLaGrange />
+              </Grid>
+              <Grid item container xs={5} md={6} p={1} mt={1} sx={{background: 'blue'}}>
+              Hola
+              </Grid>
+            </Grid>
+          </TabPanel>
           <TabPanel value={value} index={1}></TabPanel>
           <TabPanel value={value} index={2}></TabPanel>
           <TabPanel value={value} index={3}></TabPanel>
