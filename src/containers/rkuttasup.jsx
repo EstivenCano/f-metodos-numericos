@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import LineChart from "../components/lineChart";
 import axios from "axios";
 
-const FormLaGrange = () => {
+const RKuttaSup = () => {
   const [xArray, setxArray] = useState([]);
   const [xNumber, setxNumber] = useState("");
   const [yArray, setyArray] = useState([]);
@@ -237,7 +237,7 @@ const FormLaGrange = () => {
           yArray={yArray}
           xArray={xArray}
           point={point}
-          title={"LaGrange"}
+          title={"Runge Kutta Superior"}
           interpolation={interpolation}
         />
         <Grid container justifyContent='space-evenly'>
@@ -249,4 +249,4 @@ const FormLaGrange = () => {
   );
 };
 
-export default FormLaGrange;
+export default RKuttaSup;

@@ -9,7 +9,9 @@ import Tab from "@mui/material/Tab";
 import Paper from "@mui/material/Paper";
 import PaperLine from "../src/components/paperLine";
 import FormLaGrange from "./containers/lagrange";
-import LineChart from "./components/lineChart";
+import Newton from "./containers/newton";
+import RKutta from "./containers/rkutta";
+import RKuttaSup from "./containers/rkuttasup";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -121,7 +123,7 @@ function App() {
             onChange={handleChange}
             aria-label='lista_metodos'>
             <Tab
-              label='La Grange'
+              label='LaGrange'
               className='Tab'
               sx={{
                 textTransform: "none",
@@ -141,7 +143,7 @@ function App() {
               {...a11yProps(1)}
             />
             <Tab
-              label='Newton'
+              label='RungeKutta 4to orden'
               className='Tab'
               sx={{
                 textTransform: "none",
@@ -151,7 +153,7 @@ function App() {
               {...a11yProps(2)}
             />
             <Tab
-              label='RungeKutta 4to orden'
+              label='RungeKutta superior'
               className='Tab'
               sx={{
                 textTransform: "none",
@@ -160,26 +162,27 @@ function App() {
               }}
               {...a11yProps(3)}
             />
-            <Tab
-              label='RungeKutta superior'
-              className='Tab'
-              sx={{
-                textTransform: "none",
-                fontWeight: "bold",
-                fontFamily: "Montserrat Alternates",
-              }}
-              {...a11yProps(4)}
-            />
           </Tabs>
           <TabPanel value={value} index={0}>
             <Grid container width='100%' height='100%' sx={{ padding: 1 }}>
               <FormLaGrange />
             </Grid>
           </TabPanel>
-          <TabPanel value={value} index={1}></TabPanel>
-          <TabPanel value={value} index={2}></TabPanel>
-          <TabPanel value={value} index={3}></TabPanel>
-          <TabPanel value={value} index={4}></TabPanel>
+          <TabPanel value={value} index={1}>
+            <Grid container width='100%' height='100%' sx={{ padding: 1 }}>
+              <Newton />
+            </Grid>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <Grid container width='100%' height='100%' sx={{ padding: 1 }}>
+              <RKutta />
+            </Grid>
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            <Grid container width='100%' height='100%' sx={{ padding: 1 }}>
+              <RKuttaSup />
+            </Grid>
+          </TabPanel>
         </Grid>
       </Grid>
     </>

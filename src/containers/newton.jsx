@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import LineChart from "../components/lineChart";
 import axios from "axios";
 
-const FormLaGrange = () => {
+const Newton = () => {
   const [xArray, setxArray] = useState([]);
   const [xNumber, setxNumber] = useState("");
   const [yArray, setyArray] = useState([]);
@@ -31,16 +31,18 @@ const FormLaGrange = () => {
   const handleClick = async () => {
     await axios({
       method: "post",
-      url: "http://127.0.0.1:5000/lagrangreParams",
+      url: "http://127.0.0.1:5000/newton",
       data: {
+        grado: xArray.length - 1,
         x: xArray,
         y: yArray,
-        busq: point,
+        X: point,
       },
-    }).then((res) => {
-      setInterpolation(res.data);
-      console.log(res.data);
-    });
+    })
+      .then((res) => {
+        setInterpolation(res.data);
+      })
+      .catch((err) => {});
   };
 
   return (
@@ -237,11 +239,12 @@ const FormLaGrange = () => {
           yArray={yArray}
           xArray={xArray}
           point={point}
-          title={"LaGrange"}
+          title={"Newton"}
           interpolation={interpolation}
         />
         <Grid container justifyContent='space-evenly'>
           <Grid item>{`Result: ${interpolation}`}</Grid>
+
           <Grid item>{`Error: ${interpolation}`}</Grid>
         </Grid>
       </Grid>
@@ -249,4 +252,4 @@ const FormLaGrange = () => {
   );
 };
 
-export default FormLaGrange;
+export default Newton;
