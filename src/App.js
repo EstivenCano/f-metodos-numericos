@@ -9,6 +9,7 @@ import Tab from "@mui/material/Tab";
 import Paper from "@mui/material/Paper";
 import PaperLine from "../src/components/paperLine";
 import FormLaGrange from "./containers/lagrange";
+import LineChart from "./components/lineChart";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -120,7 +121,7 @@ function App() {
             onChange={handleChange}
             aria-label='lista_metodos'>
             <Tab
-              label='Derivadas'
+              label='La Grange'
               className='Tab'
               sx={{
                 textTransform: "none",
@@ -130,7 +131,7 @@ function App() {
               {...a11yProps(0)}
             />
             <Tab
-              label='La Grange'
+              label='Newton'
               className='Tab'
               sx={{
                 textTransform: "none",
@@ -150,7 +151,7 @@ function App() {
               {...a11yProps(2)}
             />
             <Tab
-              label='Interpolación'
+              label='RungeKutta 4to orden'
               className='Tab'
               sx={{
                 textTransform: "none",
@@ -160,7 +161,7 @@ function App() {
               {...a11yProps(3)}
             />
             <Tab
-              label='Integral'
+              label='RungeKutta superior'
               className='Tab'
               sx={{
                 textTransform: "none",
@@ -171,23 +172,8 @@ function App() {
             />
           </Tabs>
           <TabPanel value={value} index={0}>
-            <Grid container width='100%' height='100%' sx={{ padding: 1, background: 'green' }}>
-              <Grid item container xs={7} md={6} p={1} mt={1} sx={{background: 'red'}}>
-                <Typography
-                  variant='body1'
-                  align='center'
-                  sx={{
-                    fontFamily: "Montserrat Alternates",
-                    fontWeight: "bold",
-                    width:'100%'
-                  }}>
-                  Ingrese los valores de x e y
-                </Typography>
-                <FormLaGrange />
-              </Grid>
-              <Grid item container xs={5} md={6} p={1} mt={1} sx={{background: 'blue'}}>
-              Hola
-              </Grid>
+            <Grid container width='100%' height='100%' sx={{ padding: 1 }}>
+              <FormLaGrange />
             </Grid>
           </TabPanel>
           <TabPanel value={value} index={1}></TabPanel>
